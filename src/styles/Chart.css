@@ -1,0 +1,25 @@
+Subim Gautam
+*{
+    font-family: sans-serif
+}
+
+#doughnut-area {
+display: flex;
+flex-direction: row;
+height: 350px;
+width:50%;
+align-items: center;
+margin-top: 100px;
+
+
+}
+
+#income-doughnut{
+   height: 300px;
+   width: 300px;
+   padding: 20px;
+}
+#expense-doughnut{
+    height: 300px;
+    width: 300px;
+ }

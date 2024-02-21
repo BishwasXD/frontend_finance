@@ -1,0 +1,11 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+#nav-container{
+    height: 80px;
+    width:100%;
+ 
+    background-color: white;
+}

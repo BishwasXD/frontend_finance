@@ -1,0 +1,10 @@
+#graph-container{
+    display: flex;
+    float: right;
+    position: absolute;
+    top:112px;
+    left:885px;
+    border:1px solid black;
+    height:79%;
+    width:1000px
+}

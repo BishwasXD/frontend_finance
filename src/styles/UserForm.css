@@ -1,0 +1,83 @@
+
+*{
+    font-family: 'Open Sans', sans-serif;
+
+}
+#form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    height:100vh;
+    width: 70vh;
+    background-color:  rgb(240, 240, 240);;
+
+
+}
+#user-form{
+    display: flex;
+    flex-direction: column;
+    height:500px;
+    width:400px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #ffffff;
+
+
+
+
+ 
+}
+#user-form input{
+    height:35px;
+    width: 300px;
+    margin: 14px;
+
+}
+button {
+    height: 37px;
+    width: 300px; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: rgba(2, 183, 101, 0.868);
+    font-size: 16px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(65, 207, 101); 
+}
+.error {
+    color:red;
+    font-size: small;
+    width: 300px;
+    display: flex;
+   justify-content: start;
+    position: relative;
+    
+
+    
+  }
+  
+  #change-opt{
+    margin-top: 15px;
+  }
+  a{
+    color:rgb(129, 129, 252);
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  .sign-log{
+    margin-bottom: 20px;
+    font-size: larger;
+    height:20px;
+    width:55px;
+    padding: 5px;
+    border-bottom: 4px solid rgb(65, 207, 101); 
+    text-align: center;
+  }

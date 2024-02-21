@@ -1,0 +1,20 @@
+   <CreatableSelect
+      isClearable
+      //when true restricts the user interaction wit the component
+      isDisabled={isLoading}
+
+      //when new opt is being added it gets true 
+      isLoading={isLoading}
+
+      //when opt field is changed to create a new opt value = 'new value'
+      onChange={(newValue) => setValue(newValue)}
+
+      //when we press enter to create a new opt
+      onCreateOption={handleCreate}
+
+      //options will set to new list of options
+      options={options}
+      
+      value={value}
+    />
+         
