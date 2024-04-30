@@ -10,6 +10,7 @@ interface Option {
   readonly value: string;
 }
 
+
 const createOption = (label: string) => ({
   label,
   value: label.toLowerCase().replace(/\W/g, ""),
@@ -34,6 +35,9 @@ const defaultExpenseOptions = [
 
 
 const FinanceForm = () => {
+
+  const token = localStorage.getItem('access-token')
+
   const [isLoading, setIsLoading] = useState(false);
   const [incomeoptions, setIncomeOptions] = useState(defaultIncomeOptions);
   const [expenseoptions, setExpenseOptions] = useState(defaultExpenseOptions);
@@ -43,13 +47,13 @@ const FinanceForm = () => {
     amount:0,
     source:"",
     description:"default value",
-    user:2
+    user:token
   })
   const [expenseData, setExpenseData] = useState({
     amount:0,
     category:"",
     description:"default value",
-    user:2
+    user:token
   })
 
   const setIncomeValue = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>)=>{
@@ -88,10 +92,11 @@ const FinanceForm = () => {
 
   const handleSubmit = async ()=>{
    
-    console.log('i submitted')
     const incomeUrl = "http://127.0.0.1:8000/core/add-income"
     const expenseUrl = "http://127.0.0.1:8000/core/add-expense"
     try{
+        
+  
         const response = await axios.post(isExpense ? expenseUrl : incomeUrl, isExpense?expenseData:incomeData)
         console.log(response.data.message)
 

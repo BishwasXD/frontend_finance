@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useFormik } from "formik";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 import "../styles/UserForm.css";
@@ -7,6 +8,7 @@ import "../styles/UserForm.css";
 const UserForm = () => {
   const [response, setResponse] = useState();
   const [isSignup, setSignUp] = useState(true);
+  const navigate = useNavigate();
 
   interface InitialValues {
     email: string;
@@ -59,10 +61,14 @@ const UserForm = () => {
    
       try {
         const response = await axios.post(isSignup ? signupUrl : loginUrl , values);
-        console.log(response.data.token)
+        const token = response.data.token
+        localStorage.clear()
+        localStorage.setItem('access-token', token.access)
+        localStorage.setItem('refresh-token', token.refresh)
         setResponse(response.data.message);
+        navigate('/dashboard')
         resetForm()
-      } catch (error) {
+      } catch (error:any) {
         setResponse(error.response.data.message);
       }
     },
@@ -126,9 +132,9 @@ const UserForm = () => {
         
         {
             isSignup ? (
-                <button type="submit">SignUp</button>
+                <button type="submit" style={{width:'318px'}}>SignUp</button>
             ):(
-                <button type="submit">Login</button>
+                <button type="submit" style={{width:'318px'}}>Login</button>
             )
         }
         {isSignup ? (
@@ -139,7 +145,7 @@ const UserForm = () => {
         ) : (
           <div id="change-opt">
             Don't have an account?
-            <a onClick={() => setSignUp(true)}>Sign Up</a>
+            <a onClick={() => setSignUp(true)}>SignUp</a>
           </div>
         )}
       </form>

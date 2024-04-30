@@ -2,24 +2,20 @@ import { useEffect, useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import axios from 'axios';
 import 'chart.js/auto';
-import "../styles/Chart.css"
+import "../styles/ExpenseChart.css"
 
-const MyChart = () => {
+const ExpenseChart = () => {
     const [expenseData, setExpenseData] = useState<any>(null);
-    const [incomeData, setIncomeData] = useState<any>(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const expenseResponse = await axios.get('http://127.0.0.1:8000/core/get-expense-details');
-                const incomeResponse = await axios.get('http://127.0.0.1:8000/core/get-income-details');
                 const expenseData = expenseResponse.data;
-                const incomeData = incomeResponse.data
                 
                 if (expenseData) {
                     const expenseChartData = generateChartData(expenseData, "Expense");
-                    const incomeChartData = generateChartData(incomeData, "Income")
-                    setIncomeData(incomeChartData)
+
                     setExpenseData(expenseChartData);
                 }
             } catch (error) {
@@ -60,12 +56,12 @@ const MyChart = () => {
     };
 
     return (
-        <div id='doughnut-area'>
-            <div id='income-doughnut'> {incomeData && <Doughnut data={incomeData} options={options}/>}</div>
+        <div id='expense-doughnut-area'>
+            
             <div id='expense-doughnut'>{expenseData && <Doughnut data={expenseData} options={options}/>}</div>
              
         </div>
     );
 };
 
-export default MyChart;
+export default ExpenseChart;

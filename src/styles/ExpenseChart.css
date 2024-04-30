@@ -1,0 +1,15 @@
+
+*{
+    font-family: sans-serif
+}
+
+#expense-doughnut-area{
+    display: flex;
+    position: relative;
+    bottom: 295px;
+    left:350px;
+
+}#expense-doughnut{
+    height: 300px;
+    width: 300px;
+ }

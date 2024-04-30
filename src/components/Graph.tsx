@@ -10,13 +10,23 @@ const Graph = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const accesstoken = localStorage.getItem('access-token')
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/core/get-linechart-data');
+      
+        if (accesstoken){
+
+        const response = await axios.get('http://127.0.0.1:8000/core/get-linechart-data'
+        );
         const linedata = generateLineData(response.data.income, response.data.expense);
         setLineData(linedata);
         setLoading(false);
+        }
+        else{
+          console.log('access token not found in local storage')
+        }
       } catch (error) {
         console.log('Error fetching data:', error);
         setError('Error fetching data. Please try again later.');

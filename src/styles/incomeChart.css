@@ -1,0 +1,17 @@
+
+*{
+    font-family: sans-serif
+}
+
+#income-doughnut-area {
+display: flex;
+padding-left: 20px;
+
+
+}
+
+#income-doughnut{
+   height: 280px;
+   width: 280px;
+   
+}

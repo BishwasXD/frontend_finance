@@ -2,9 +2,8 @@
     display: flex;
     float: right;
     position: absolute;
-    top:112px;
+    top:200px;
     left:885px;
-    border:1px solid black;
-    height:79%;
-    width:1000px
-}
+    height:80%;
+    width:50%
+}               
